@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Food Frame Studio | Food Advertisement & Graphic Design by MD Fahim Sultan</title>
+<meta name="description" content="Food advertisements, Instagram posts, restaurant menus, offer banners and flyers for restaurants, cafes and small businesses. By MD Fahim Sultan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home"><span class="logo"></span>Food Frame Studio</a>
+  <nav aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Designs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <p class="owner">MD FAHIM SULTAN</p>
+    <h1>Food Frame Studio</h1>
+    <p class="sub">Food Advertisement &amp; Graphic Design Services</p>
+    <p class="lead">I create attractive food advertisements, Instagram posts, restaurant menus, promotional banners, and flyers for restaurants, cafes, and small businesses.</p>
+    <div class="buttons">
+      <a class="btn solid" href="#portfolio">View My Designs</a>
+      <a class="btn" href="#" data-link="fiverr">Hire Me on Fiverr</a>
+      <a class="btn" href="#" data-link="instagram">Follow Me on Instagram</a>
+      <a class="btn" href="#contact">Contact Me</a>
+    </div>
+  </section>
+
+  <section id="services" class="block">
+    <h2>My five services</h2>
+    <div id="serviceList" class="services"></div>
+  </section>
+
+  <section id="portfolio" class="block dark">
+    <h2>Design samples</h2>
+    <p class="note">These are practice projects. No client work is shown here.</p>
+    <div id="gallery" class="gallery"></div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div>
+        <p><strong>MD FAHIM SULTAN</strong><br>Food Frame Studio</p>
+        <p>Email: <a href="mailto:fahimsultanmd.help@gmail.com">fahimsultanmd.help@gmail.com</a></p>
+        <div class="buttons">
+          <a class="btn solid" href="mailto:fahimsultanmd.help@gmail.com">Email Me</a>
+          <a class="btn" href="#" data-link="fiverr">Hire Me on Fiverr</a>
+          <a class="btn" href="#" data-link="instagram" aria-label="Instagram">Instagram</a>
+        </div>
+      </div>
+      <form id="form" novalidate>
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <label for="details">Project details</label>
+        <textarea id="details" name="details" rows="5" required></textarea>
+        <button class="btn solid" type="submit">Send by email</button>
+        <p id="formMsg" role="status" aria-live="polite"></p>
+        <p class="note">This form has no server yet. It opens your email app with the message ready to send. To receive messages directly, connect a free service such as Formspree.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>© Food Frame Studio, MD Fahim Sultan</footer>
+<div id="toast" role="alert"></div>
+<script src="script.js"></script>
+</body>
+</html>
