@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Food Frame Studio | Food Advertisement & Graphic Design by MD Fahim Sultan</title>
+<meta name="description" content="Food ads, Instagram posts, restaurant menus, offer banners, flyers and logos for restaurants, cafes and small businesses. By MD Fahim Sultan.">
+<meta name="theme-color" content="#14110f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14110f;--card:#1e1a17;--line:#2f2924;--cream:#f7f0e3;--mut:#b9ae9d;--or:#e8731a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font:17px/1.65 'DM Sans',sans-serif}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;margin:0;font-weight:800}
+a{color:inherit}img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;background:rgba(20,17,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 19px 'Bricolage Grotesque',sans-serif}
+.links{display:flex;gap:18px;font-size:15px}.links a{text-decoration:none;color:var(--mut)}.links a:hover{color:var(--or)}
+@media(max-width:560px){.links a:nth-child(n+3){display:none}}
+.hero{padding:56px 0 40px}
+.hero .wrap{display:grid;gap:36px}
+@media(min-width:880px){.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center}}
+.eyebrow{color:var(--or);font-weight:700;letter-spacing:.18em;font-size:13px;text-transform:uppercase}
+h1{font-size:clamp(46px,9vw,92px);margin:14px 0 18px}
+h1 em{font-style:normal;color:var(--or)}
+.lead{color:var(--mut);max-width:520px;font-size:18px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-block;padding:14px 22px;border-radius:999px;border:1.5px solid var(--or);color:var(--cream);text-decoration:none;font-weight:700;font-size:15px;transition:.2s;cursor:pointer;background:none;font-family:inherit}
+.btn.fill{background:var(--or);color:#17120d}.btn:hover{transform:translateY(-2px)}
+.heroimg{border-radius:20px;overflow:hidden;border:1px solid var(--line);max-height:560px}
+.heroimg img{width:100%;height:100%;object-fit:cover;max-height:560px}
+.strip{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:16px 0;margin-top:40px}
+.strip div{display:inline-block;animation:m 28s linear infinite;font:800 22px 'Bricolage Grotesque',sans-serif;color:var(--mut)}
+.strip span{color:var(--or);margin:0 22px}
+@keyframes m{to{transform:translateX(-50%)}}
+section{padding:72px 0}
+h2{font-size:clamp(36px,6vw,58px);margin-bottom:34px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:.25s}
+.svc:hover{border-color:var(--or);transform:translateY(-4px)}
+.svc b{color:var(--or);font:800 14px 'Bricolage Grotesque',sans-serif;letter-spacing:.1em}
+.svc h3{font-size:24px;margin:10px 0 12px}.svc ul{margin:0;padding-left:18px;color:var(--mut)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:-10px 0 24px}
+.tabs button{padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:none;color:var(--mut);font:700 14px 'DM Sans';cursor:pointer}
+.tabs button.on{background:var(--or);border-color:var(--or);color:#17120d}
+.work{columns:1;column-gap:16px}
+@media(min-width:560px){.work{columns:2}}@media(min-width:900px){.work{columns:3}}
+.w{break-inside:avoid;margin-bottom:16px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:zoom-in;transition:.25s}
+.w:hover{border-color:var(--or)}.w img{width:100%;height:auto}
+.w p{margin:0;padding:12px 14px;font-size:14px;color:var(--mut)}.w p b{display:block;color:var(--cream);font-size:15px}
+.steps{counter-reset:s}.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.step:before{counter-increment:s;content:"0" counter(s);color:var(--or);font:800 34px 'Bricolage Grotesque'}
+.step h3{font-size:22px;margin:6px 0}.step p{margin:0;color:var(--mut)}
+.contact{display:grid;gap:32px}@media(min-width:820px){.contact{grid-template-columns:1fr 1fr}}
+form{display:grid;gap:8px}label{font-weight:700;font-size:15px;margin-top:6px}
+input,textarea{font:inherit;padding:13px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--cream);width:100%}
+.bad{border-color:#e5484d!important}
+#msg{font-weight:700;min-height:24px}.err{color:#ff7b7f}.ok{color:#6fd08c}
+small{color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--mut);font-size:14px}
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;z-index:50;padding:16px;cursor:zoom-out}
+.lb.on{display:flex}.lb img{max-height:92vh;border-radius:10px}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.in{opacity:1;transform:none}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--card);border:1.5px solid var(--or);padding:14px 18px;border-radius:12px;display:none;z-index:60;max-width:90vw}
+@media(prefers-reduced-motion:reduce){.strip div{animation:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="brand" href="#top"><svg width="34" height="34" viewBox="0 0 48 48" aria-hidden="true"><rect x="3" y="3" width="42" height="42" rx="8" fill="none" stroke="#e8731a" stroke-width="4"/><circle cx="24" cy="24" r="12" fill="#f7f0e3"/><circle cx="24" cy="24" r="6" fill="#e8731a"/></svg>Food Frame Studio</a>
+<div class="links"><a href="#services">Services</a><a href="#work">Designs</a><a href="#contact">Contact</a></div>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+<div>
+<div class="eyebrow">MD Fahim Sultan · Food Frame Studio</div>
+<h1>Food ads that make people <em>hungry.</em></h1>
+<p class="lead">I create attractive food advertisements, Instagram posts, restaurant menus, promotional banners, flyers and logos for restaurants, cafes and small businesses.</p>
+<div class="btns">
+<a class="btn fill" href="#work">View My Designs</a>
+<a class="btn" href="#" data-l="fiverr">Hire Me on Fiverr</a>
+<a class="btn" href="#" data-l="instagram">Follow Me on Instagram</a>
+<a class="btn" href="#" data-l="pinterest">Pinterest</a>
+<a class="btn" href="#contact">Contact Me</a>
+</div></div>
+<div class="heroimg"><img src="1_20261019_012052_0000.png" alt="Burger advertisement sample design" onerror="this.parentNode.remove()"></div>
+</div>
+<div class="strip" aria-hidden="true"><div id="mq"></div></div>
+</header>
+
+<main>
+<section id="services"><div class="wrap rv"><h2>My services</h2><div class="grid" id="sv"></div></div></section>
+<section id="work" style="background:#100d0b"><div class="wrap rv"><h2>Design samples</h2>
+<div class="tabs" id="tabs"></div>
+<div class="work" id="wk"></div>
+<small>Every design shown here is a sample or practice project. No client work is claimed.</small></div></section>
+<section><div class="wrap rv"><h2>How it works</h2><div class="grid steps">
+<div class="step"><h3>Tell me your idea</h3><p>Send your food photos, prices and offer text.</p></div>
+<div class="step"><h3>I design it</h3><p>I make a clean, eye-catching design in your colors.</p></div>
+<div class="step"><h3>You approve</h3><p>Check it, ask for changes, then get your final files.</p></div>
+</div></div></section>
+<section id="contact" style="background:#100d0b"><div class="wrap rv"><h2>Let's work together</h2>
+<div class="contact"><div>
+<p><b>MD FAHIM SULTAN</b><br>Food Frame Studio<br>Email: <a href="mailto:fahimsultanmd.help@gmail.com">fahimsultanmd.help@gmail.com</a></p>
+<div class="btns"><a class="btn fill" href="mailto:fahimsultanmd.help@gmail.com">Email Me</a><a class="btn" href="#" data-l="fiverr">Hire Me on Fiverr</a></div></div>
+<form id="f" novalidate>
+<label for="n">Name</label><input id="n" autocomplete="name">
+<label for="e">Email</label><input id="e" type="email" autocomplete="email">
+<label for="d">Project details</label><textarea id="d" rows="5"></textarea>
+<button class="btn fill" type="submit" style="justify-self:start;margin-top:10px">Send by email</button>
+<p id="msg" role="status" aria-live="polite"></p>
+<small>This form opens your email app with the message ready. Nothing is sent until you press Send there.</small>
+</form></div></div></section>
+</main>
+<footer>© Food Frame Studio · MD Fahim Sultan</footer>
+<div class="lb" id="lb" role="dialog" aria-label="Enlarged design"><img id="lbi" alt=""></div>
+<div id="toast" role="alert"></div>
+
+<script>
+/* ===== EDIT HERE: your links ===== */
+const L={fiverr:"https://www.fiverr.com/mdfahimsulta",instagram:"https://www.instagram.com/md_fahimsultan_food_frame_stu/",pinterest:"https://www.pinterest.com/foodframestudio0361/"};
+const EMAIL="fahimsultanmd.help@gmail.com";
+/* ===== EDIT HERE: services ===== */
+const SV=[
+["Food Advertisement Design",["Burger, pizza, chicken and other food ads","Food photos, prices and promotional text","Restaurant advertising posters"]],
+["Instagram Post Design",["Square Instagram food posts","Restaurant promotional posts","Simple social media graphics"]],
+["Restaurant Menu Design",["Simple restaurant menus","Food names, prices and your images","Clean, readable layouts"]],
+["Food Offer Banner",["Discount banners","Special offers and combo meals","Buy 1 Get 1 graphics"]],
+["Flyer Design",["Restaurant promotional flyers","Food business advertising flyers","Simple flyers for small businesses"]],
+["Logo Design",["Simple, clean logos for food businesses","Brand colors for restaurants and cafes","Profile pictures for social media"]]];
+/* ===== EDIT HERE: designs. [title, image file, group] ===== */
+const W=[
+["Logo Design: Food Frame Studio","1000019222.png","Logo"],
+["Burger Advertisement","1_20261019_012052_0000.png","Ads"],
+["Pizza Food Promotion","2_20261019_012052_0002.png","Ads"],
+["Taco Food Advertisement","3_20261019_012052_0001.png","Ads"],
+["Menu Card: Classic Virgin Mojito","01_Classic_Virgin_Mojito.png","Menus"],
+["Menu Card: Green Apple Mojito","02_Green_Apple_Mojito.png","Menus"],
+["Menu Card: Blue Lagoon Mojito","03_Blue_Lagoon_Mojito.png","Menus"],
+["Menu Card: Blueberry Lemonade","04_Blueberry_Lemonade.png","Menus"],
+["Menu Card: Green Apple Lemonade","05_Green_Apple_Lemonade.png","Menus"],
+["Menu Card: Chocolate Smoothie","06_Chocolate_Smoothie.png","Menus"],
+["Menu Card: Oreo Smoothie","07_Oreo_Smoothie.png","Menus"],
+["Menu Card: Blue Velvet Smoothie","08_Blue_Velvet_Smoothie.png","Menus"]];
+
+const $=s=>document.querySelector(s);
+const t=m=>{const o=$("#toast");o.textContent=m;o.style.display="block";clearTimeout(t.i);t.i=setTimeout(()=>o.style.display="none",4000)};
+$("#mq").innerHTML=(SV.map(s=>s[0]).join('<span>●</span>')+'<span>●</span>').repeat(4);
+$("#sv").innerHTML=SV.map((s,i)=>`<article class="svc"><b>0${i+1}</b><h3>${s[0]}</h3><ul>${s[1].map(x=>`<li>${x}</li>`).join("")}</ul></article>`).join("");
+const G=["All",...new Set(W.map(w=>w[2]))];
+function show(g){
+ $("#wk").innerHTML=W.filter(w=>g=="All"||w[2]==g).map(w=>`<figure class="w" style="margin:0 0 16px" data-i="${w[1]}"><img src="${w[1]}" alt="${w[0]}" loading="lazy" onerror="this.closest('figure').remove()"><p><b>${w[0]}</b>Sample Design — Practice Project</p></figure>`).join("");
+ document.querySelectorAll("#tabs button").forEach(b=>b.classList.toggle("on",b.textContent==g));
+}
+$("#tabs").innerHTML=G.map(g=>`<button type="button">${g}</button>`).join("");
+$("#tabs").onclick=e=>{if(e.target.tagName=="BUTTON")show(e.target.textContent)};
+show("All");
+$("#wk").onclick=e=>{const f=e.target.closest(".w");if(f){$("#lbi").src=f.dataset.i;$("#lb").classList.add("on")}};
+$("#lb").onclick=()=>$("#lb").classList.remove("on");
+document.addEventListener("keydown",e=>{if(e.key=="Escape")$("#lb").classList.remove("on")});
+document.querySelectorAll("[data-l]").forEach(a=>{const u=L[a.dataset.l];
+ if(u&&!u.startsWith("[")){a.href=u;a.target="_blank";a.rel="noopener"}
+ else a.onclick=e=>{e.preventDefault();t("Add your real link in index.html first.")}});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.08});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+$("#f").onsubmit=e=>{e.preventDefault();const n=$("#n"),m=$("#e"),d=$("#d"),o=$("#msg");let ok=true;
+ [n,m,d].forEach(x=>{const b=!x.value.trim()||(x==m&&!m.checkValidity());x.classList.toggle("bad",b);if(b)ok=false});
+ if(!ok){o.className="err";o.textContent="Please fill in your name, a valid email, and project details.";return}
+ location.href=`mailto:${EMAIL}?subject=${encodeURIComponent("Project enquiry from "+n.value)}&body=${encodeURIComponent("Name: "+n.value+"\nEmail: "+m.value+"\n\n"+d.value)}`;
+ o.className="ok";o.textContent="Your email app should open now. Press Send there. Nothing has been sent yet."};
+</script>
+</body>
+</html>
