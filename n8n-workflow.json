@@ -1,0 +1,120 @@
+{
+  "name": "Auto Gallery (Drive → Gemini → GitHub)",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": { "item": [{ "mode": "everyMinute" }] },
+        "triggerOn": "specificFolder",
+        "folderToWatch": { "__rl": true, "value": "YOUR_DRIVE_FOLDER_ID", "mode": "id" },
+        "event": "fileCreated",
+        "options": {}
+      },
+      "name": "Google Drive Trigger",
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [0, 0]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": { "__rl": true, "value": "={{ $json.id }}", "mode": "id" },
+        "options": {}
+      },
+      "name": "Download Image",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [220, 0]
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "operation": "analyze",
+        "modelId": { "__rl": true, "value": "models/gemini-2.0-flash", "mode": "id" },
+        "text": "এই খাবারের ছবির জন্য শুধু JSON দাও, অন্য কিছু লিখো না: {\"title\":\"...\",\"description\":\"...\",\"category\":\"...\"}. টাইটেল ৫ শব্দের মধ্যে, বর্ণনা ১-২ বাক্যে, ক্যাটাগরি ১ শব্দে (যেমন: বিরিয়ানি, ডেজার্ট, পানীয়, ফাস্টফুড)। সব বাংলায়।",
+        "inputType": "binary",
+        "binaryPropertyName": "data",
+        "options": {}
+      },
+      "name": "Gemini Analyze Image",
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [440, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const raw = $json.content?.parts?.[0]?.text || $json.text || '';\nlet info;\ntry { info = JSON.parse(raw.replace(/```json|```/g, '').trim()); } catch (e) { info = { title: 'নতুন ছবি', description: '', category: 'অন্যান্য' }; }\nconst orig = $('Google Drive Trigger').item.json.name || 'photo.jpg';\nconst safe = Date.now() + '-' + orig.replace(/[^a-zA-Z0-9._-]/g, '_');\nreturn { json: { path: 'images/' + safe, title: info.title, description: info.description, category: info.category }, binary: $('Download Image').item.binary };"
+      },
+      "name": "Prepare Entry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [660, 0]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "create",
+        "owner": { "__rl": true, "value": "YOUR_GITHUB_USERNAME", "mode": "name" },
+        "repository": { "__rl": true, "value": "my-gallery", "mode": "name" },
+        "filePath": "={{ $json.path }}",
+        "binaryData": true,
+        "binaryPropertyName": "data",
+        "commitMessage": "Add image"
+      },
+      "name": "Upload Image to GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [880, 0]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "get",
+        "owner": { "__rl": true, "value": "YOUR_GITHUB_USERNAME", "mode": "name" },
+        "repository": { "__rl": true, "value": "my-gallery", "mode": "name" },
+        "filePath": "gallery.json",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "name": "Get gallery.json",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1100, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "let list = [];\ntry { list = JSON.parse(Buffer.from($json.content, 'base64').toString('utf8')); } catch (e) { list = []; }\nconst e = $('Prepare Entry').item.json;\nlist.unshift({ file: e.path, title: e.title, description: e.description, category: e.category });\nreturn { json: { newContent: JSON.stringify(list, null, 2) } };"
+      },
+      "name": "Build gallery.json",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1320, 0]
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "edit",
+        "owner": { "__rl": true, "value": "YOUR_GITHUB_USERNAME", "mode": "name" },
+        "repository": { "__rl": true, "value": "my-gallery", "mode": "name" },
+        "filePath": "gallery.json",
+        "fileContent": "={{ $json.newContent }}",
+        "commitMessage": "Update gallery"
+      },
+      "name": "Update gallery.json",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1540, 0]
+    }
+  ],
+  "connections": {
+    "Google Drive Trigger": { "main": [[{ "node": "Download Image", "type": "main", "index": 0 }]] },
+    "Download Image": { "main": [[{ "node": "Gemini Analyze Image", "type": "main", "index": 0 }]] },
+    "Gemini Analyze Image": { "main": [[{ "node": "Prepare Entry", "type": "main", "index": 0 }]] },
+    "Prepare Entry": { "main": [[{ "node": "Upload Image to GitHub", "type": "main", "index": 0 }]] },
+    "Upload Image to GitHub": { "main": [[{ "node": "Get gallery.json", "type": "main", "index": 0 }]] },
+    "Get gallery.json": { "main": [[{ "node": "Build gallery.json", "type": "main", "index": 0 }]] },
+    "Build gallery.json": { "main": [[{ "node": "Update gallery.json", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
